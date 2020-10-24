@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import CartIcon from './CartIcon.js'
 
 class Navbar extends Component {
     render() {
@@ -11,19 +12,17 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Catálogo<span class="sr-only">(current)</span></a>
+                            <a className="nav-link" href="#">Catálogo<span className="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <a className="nav-link" href="#">Ofertas</a>
                         </li>
-                        <li classNames="nav-item">
+                        <li className="nav-item">
                             <a className="nav-link" href="#">Contacto</a>
                         </li>
                     </ul>
-                    <button className='btn btn-success'>
-                        <i className="fas fa-shopping-cart">Cart</i>
-                    </button>
                 </div>
+                <CartIcon/>
             </nav>
         )
     }
