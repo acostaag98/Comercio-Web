@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import { Card, Button } from 'react-bootstrap';
-import {Icon} from 'semantic-ui-react'
+import React from 'react';
+import { Card } from 'react-bootstrap';
+import ItemCount from './ItemCount.js'
 
 const ItemList = () => {
 
     
     const cardInfo = [
-        {image: 'https://static.thenounproject.com/png/1375593-200.png', title: 'Producto 1', text: 'Descripción del producto: ..', text2: 'Precio: $123'},
+        {image: 'https://static.thenounproject.com/png/1375593-200.png', title: 'Producto 1', text: 'Descripción del producto: ..', text2: 'Precio: $123',},
         {image: 'https://static.thenounproject.com/png/1375593-200.png', title: 'Producto 2', text: 'Descripción del producto: ..', text2: 'Precio: $123'},
         {image: 'https://static.thenounproject.com/png/1375593-200.png', title: 'Producto 3', text: 'Descripción del producto: ..', text2: 'Precio: $123'},
         {image: 'https://static.thenounproject.com/png/1375593-200.png', title: 'Producto 4', text: 'Descripción del producto: ..', text2: 'Precio: $123'},
@@ -23,24 +23,6 @@ const ItemList = () => {
 
 
     ]
-
-    function ItemCount(stock, initial) {
-        const [clicks, setClicks] = useState(0)
-        function onAdd() {
-            //alguna logica que me lleve la cantidad de clicks al boton del Navbar
-        }
-        return <div>
-            <h1>{clicks}</h1>
-            <Button  variant='primary' onClick={()=>{
-                setClicks(clicks - 1)
-            }}><Icon name='minus'/></Button>
-            <Button variant='primary' onClick={()=>{
-                setClicks(clicks + 1)
-            }}><Icon name='plus'/></Button>
-            <Button onClick={() => {onAdd(clicks)}}>Add to cart</Button>
-        </div>
-
-    }
  
     const renderCard = (card, index) => {
         return (
@@ -54,7 +36,7 @@ const ItemList = () => {
                 <Card.Text> 
                     {card.text2}
                 </Card.Text>
-                <ItemCount/>
+                <ItemCount stock={10} initial= {0} />
             </Card.Body>
         </Card>
         )
