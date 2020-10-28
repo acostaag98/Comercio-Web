@@ -4,6 +4,10 @@ import ItemCount from './ItemCount.js'
 
 const ItemList = () => {
 
+    function onAdd(clicks){
+        alert(clicks)
+        return <ItemCount onAdd={onAdd}/>
+    } 
     
     const cardInfo = [
         {image: 'https://static.thenounproject.com/png/1375593-200.png', title: 'Producto 1', text: 'Descripción del producto: ..', text2: 'Precio: $123',},
@@ -23,7 +27,7 @@ const ItemList = () => {
 
 
     ]
- 
+    
     const renderCard = (card, index) => {
         return (
             <Card style={{ width: '18rem', display: 'inline-block', margin: '2px'}} key={index} className='box'>
@@ -36,7 +40,7 @@ const ItemList = () => {
                 <Card.Text> 
                     {card.text2}
                 </Card.Text>
-                <ItemCount stock={10} initial= {0} />
+                <ItemCount stock={10} initial= {0} onAdd={onAdd} />
             </Card.Body>
         </Card>
         )

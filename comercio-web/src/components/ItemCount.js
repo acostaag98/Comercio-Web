@@ -2,13 +2,11 @@ import React, {useState} from 'react'
 import {Icon} from 'semantic-ui-react'
 import { Button } from 'react-bootstrap';
 
-export default function ItemCount({stock, initial}) {
+
+export default function ItemCount({stock, initial, onAdd}) {
     const [clicks, setClicks] = useState(initial)
-    function onAdd() {
-        //alguna logica que me lleve la cantidad de clicks al boton del Navbar
-    }
     function sumar(){
-        if (clicks == stock) {
+        if (clicks === stock) {
             alert('no hay mas stock')
         }
         else {
