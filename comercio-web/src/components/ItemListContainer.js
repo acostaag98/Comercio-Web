@@ -13,16 +13,16 @@ const productos = [
 const itemTask = new Promise((resolve, reject) => {
     setTimeout(() => {
            resolve(productos)
-       }, 7000)
+       }, 2000)
    
 
 });
 
 function ItemListContainer() {
-    const [item, setItem] = useState([])
+    const [productos, setProductos] = useState([])
     useEffect(() => {
         itemTask.then(res => {
-            setItem(res)
+            setProductos(res)
         }, err => {
             console.log('Rejected' + err)
         })
