@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-export default function Item({title, text, text2, image}, stock, initial) {
+export default function Item({title, text, text2, image}) {
     return <Card style={{ width: '18rem', display: 'inline-block', margin: '2px'}} className='box'>
     <Card.Img variant="top" src={image} />
     <Card.Body>
