@@ -23,6 +23,6 @@ export default function ItemCount({stock, initial, onAdd}) {
         <h1>{clicks}</h1>
         <Button  variant='primary' onClick={restar}><Icon name='minus'/></Button>
         <Button variant='primary' onClick={sumar}><Icon name='plus'/></Button>
-        <Button onClick={() => {onAdd(clicks)}}>Add to cart</Button>
+        <Button onClick={() => {onAdd(clicks)}}>Comprar</Button>
     </div>
 }
