@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import { AccordionTitle } from 'semantic-ui-react';
 import ItemCount from './ItemCount';
 
 export default function ItemDetail({title, text, text2, image, stock, initial, onAdd}) {
@@ -17,6 +18,9 @@ export default function ItemDetail({title, text, text2, image, stock, initial, o
             {text2}
         </Card.Text>
     </Card.Body>
-    <ItemCount stock={stock} initial={0} onAdd={onAdd}/>
+    <ItemCount stock={stock} initial={initial} onAdd={onAdd}/>
 </Card>
 }
+
+
+

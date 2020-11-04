@@ -8,7 +8,5 @@ export default function ItemDetailList(props) {
         alert(clicks)
         return <ItemCount onAdd={onAdd}/>
     } 
-    return productos.map((item, index) => (
-        <ItemDetail title={item.title} text={item.text} text2={item.text2} image={item.image} stock={item.stock} inital={item.inital}/>
-    ))  
+    return <ItemDetail title={productos.title} text={productos.text} text2={productos.text2} image={productos.image} stock= {productos.stock} inital={productos.inital} onAdd={onAdd}/>
 }
