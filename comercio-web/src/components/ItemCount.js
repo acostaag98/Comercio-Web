@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Icon} from 'semantic-ui-react'
 import { Button } from 'react-bootstrap';
 
 
 export default function ItemCount({stock, initial, onAdd}) {
     const [clicks, setClicks] = useState(initial)
+    useEffect(() => setClicks(initial), [initial])
     function sumar(){
         if (clicks === stock) {
             alert('no hay mas stock')
