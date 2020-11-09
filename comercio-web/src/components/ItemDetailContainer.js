@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ItemCount from './ItemCount.js'
-import ItemDetail from './ItemDetail.js'
 import ItemDetailList from './ItemDetailList.js'
+import {useParams} from 'react'
 
 const productos = [
     {id: 1, title:'Producto 1', text:'Descripcion del producto: ..', text2:'Precio: $123', image: 'https://static.thenounproject.com/png/1375593-200.png', stock: 12, initial: 0},
@@ -10,18 +9,20 @@ const productos = [
     {id: 4, title:'Producto 4', text:'Descripcion del producto: ..', text2:'Precio: $123', image: 'https://static.thenounproject.com/png/1375593-200.png', stock: 15, initial: 1},
     
 ]
-const itemParaMostrar = productos.filter(productos => productos.id == 1) [0]
+
 
 const getItemDetail = new Promise((resolve, rejected) => {
     setTimeout(() => {
-        resolve(itemParaMostrar)
+        resolve(productos)
     }, 3000)
 })
 function ItemDetailContainer() {
-    const [productos, setProductos] = useState([])
+    const [productos, setProductos] = useState([]);
+    const {id} = useParams()
     useEffect(() => {
-        getItemDetail.then(res => {
-            setProductos(res)
+        getItemDetail().then(res => {
+            const itemClickeado = res.filter(res => res.id == id) [0] 
+            setProductos(itemClickeado)
         }, err => {
             console.log(err)
         })
