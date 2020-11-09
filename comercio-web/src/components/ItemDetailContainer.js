@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetailList from './ItemDetailList.js'
-import {useParams} from 'react'
+import {useParams} from 'react-router-dom'
 
 const productos = [
     {id: 1, title:'Producto 1', text:'Descripcion del producto: ..', text2:'Precio: $123', image: 'https://static.thenounproject.com/png/1375593-200.png', stock: 12, initial: 0},
@@ -20,8 +20,8 @@ function ItemDetailContainer() {
     const [productos, setProductos] = useState([]);
     const {id} = useParams()
     useEffect(() => {
-        getItemDetail().then(res => {
-            const itemClickeado = res.filter(res => res.id == id) [0] 
+        getItemDetail.then(res => {
+            const itemClickeado = res.filter(res => res.id = id)[0] 
             setProductos(itemClickeado)
         }, err => {
             console.log(err)

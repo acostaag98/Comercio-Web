@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { AccordionTitle } from 'semantic-ui-react';
 import ItemCount from './ItemCount';
 
 export default function ItemDetail({title, text, text2, image, stock, initial, onAdd}) {
