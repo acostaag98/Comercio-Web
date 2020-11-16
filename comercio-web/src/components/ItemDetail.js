@@ -1,9 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Card } from 'react-bootstrap';
 import ItemCount from './ItemCount';
+import { Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 import './estilos.css'
 
-export default function ItemDetail({ title, price, image, text, stock, initial, onAdd }) {
+
+
+export default function ItemDetail({ title, price, image, text, stock, initial}) {
+    const [button, setButton] = useState(true)
+    const [cantidad, setCantidad] = useState(null)
+    function onAdd(clicks){
+        alert(`Se agregó tu pedido (${clicks}) correctamente a tu carrito!`)
+        setCantidad(clicks)
+        setButton(false)
+    } 
+    function toggleButton() {
+        if (button === true) {
+            return <ItemCount stock={stock} initial={initial} onAdd={onAdd} />
+        }
+        if (button === false) {
+            return <Link to='/cart'><Button id='button-cart'>Ir al Carrito! ({cantidad})</Button></Link>
+        }
+    }
     return <div id='card'>
         <Card  style={{ width: '18rem', margin: '2px' }} className='card border-dark mb-3 box center'>
             <Card.Img variant="top" src={image} />
@@ -19,11 +38,7 @@ export default function ItemDetail({ title, price, image, text, stock, initial, 
                 </Card.Text>
                     Precio: ${price}
             </Card.Body>
-            <ItemCount stock={stock} initial={initial} onAdd={onAdd} />
+            {toggleButton()}
         </Card>
     </div>
-
-
-}
-
-
+    }
