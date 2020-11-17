@@ -8,7 +8,7 @@ import { useCartContext } from '../context/CartContext';
 
 
 
-export default function ItemDetail({ title, price, image, text, stock, initial}) {
+export default function ItemDetail({ id, title, price, image, text, stock, initial}) {
     const [button, setButton] = useState(true)
     const [cantidad, setCantidad] = useState(null)
     const {add} = useCartContext()
@@ -16,7 +16,7 @@ export default function ItemDetail({ title, price, image, text, stock, initial})
         alert(`Se agregó tu pedido (${clicks}) correctamente a tu carrito!`)
         setCantidad(clicks)
         setButton(false)
-        const itemParaAgregar = {title: title, price: price, cantidad: clicks, image: image}
+        const itemParaAgregar = {id: id, title: title, price: price, cantidad: clicks, image: image}
         add(itemParaAgregar)
 
     } 

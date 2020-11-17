@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import './estilos.css'
 import { Button } from 'semantic-ui-react';
 
-export default function Cart(item) {
+export default function Cart() {
     const {cart, remove} = useCartContext()
     return cart.map(item => (
         <div id='name-logo'>
@@ -19,7 +19,7 @@ export default function Cart(item) {
                 </Card.Text>
                     Precio: ${item.price * item.cantidad}
             </Card.Body>
-            <Button onClick={remove}>Remove</Button>
+            <Button onClick={() => remove(item.id)}>Remove</Button>
         </Card>
         </div>
     ))
