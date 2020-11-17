@@ -16,7 +16,7 @@ export default function ItemDetail({ title, price, image, text, stock, initial})
         alert(`Se agregó tu pedido (${clicks}) correctamente a tu carrito!`)
         setCantidad(clicks)
         setButton(false)
-        const itemParaAgregar = {title: title, price: price, cantidad: clicks}
+        const itemParaAgregar = {title: title, price: price, cantidad: clicks, image: image}
         add(itemParaAgregar)
 
     } 
