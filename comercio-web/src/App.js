@@ -8,34 +8,38 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Cart from './components/Cart'
 import {BrowserRouter, Route, Switch } from 'react-router-dom'
+import CartProvider from './context/CartContext';
+
 
 
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Navbar/>
-        <Switch>
-          <Route exact path='/'>
-            <ItemListContainer />
-          </Route>
-          <Route exact path='/item/:id'>
-            <ItemDetailContainer />
-          </Route>
-          <Route exat path='/cart'>
-            <Cart />
-          </Route>
-          <Route exact path='/about'>
-            <About />
-          </Route>
-          <Route exact path='/contact'>
-            <Contact />
-          </Route>
-        </Switch>
-        <Footer />
-      </BrowserRouter>
-    </div>
+  <CartProvider defaultCart={[]}>
+        <BrowserRouter>
+          <Navbar/>
+          <Switch>
+            <Route exact path='/'>
+              <ItemListContainer />
+            </Route>
+            <Route exact path='/item/:id'>
+              <ItemDetailContainer />
+            </Route>
+            <Route exat path='/cart'>
+              <Cart />
+            </Route>
+            <Route exact path='/about'>
+              <About />
+            </Route>
+            <Route exact path='/contact'>
+              <Contact />
+            </Route>
+          </Switch>
+          <Footer />
+        </BrowserRouter>
+      </CartProvider>
+
+ 
   );
 }
 

@@ -4,16 +4,19 @@ import ItemCount from './ItemCount';
 import { Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import './estilos.css'
+import { useCartContext } from '../context/CartContext';
 
 
 
 export default function ItemDetail({ title, price, image, text, stock, initial}) {
     const [button, setButton] = useState(true)
     const [cantidad, setCantidad] = useState(null)
+
     function onAdd(clicks){
         alert(`Se agregó tu pedido (${clicks}) correctamente a tu carrito!`)
         setCantidad(clicks)
         setButton(false)
+
     } 
     function toggleButton() {
         if (button === true) {

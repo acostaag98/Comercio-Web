@@ -1,5 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function Cart() {
-    return <div>Component Cart Works!</div>
+    return <div>Cart Works!</div>
 }
