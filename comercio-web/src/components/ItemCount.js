@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Icon} from 'semantic-ui-react'
 import { Button } from 'react-bootstrap';
 import './estilos.css'
+import Cart from './Cart';
 
 
 export default function ItemCount({stock, initial, onAdd}) {
@@ -22,7 +23,7 @@ export default function ItemCount({stock, initial, onAdd}) {
         return clicks
     }
     function ShowAndHide() {
-            return <div>
+            return <div className='mx-auto'>
             <h1>{clicks}</h1>
             <Button id='button-detail-count' className='border-dark' variant='primary' onClick={restar}><Icon name='minus'/></Button>
             <Button id='button-detail-count' className='border-dark' variant='primary' onClick={sumar}><Icon name='plus'/></Button>
@@ -31,3 +32,4 @@ export default function ItemCount({stock, initial, onAdd}) {
     }
     return ShowAndHide()
 }
+
