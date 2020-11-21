@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useCartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom'
 import './estilos.css'
@@ -6,17 +6,17 @@ import './estilos.css'
 
 
 export default function Cart() {
-    const { cart, remove } = useCartContext()
-    const [total, setTotal] = useState()
-    function calcularTotal(item) {
-        total = item.price * item.cantidad
-        setTotal(+total)
-        return total
-
+    const { cart, remove } = useCartContext()   
+    function calcularTotal(item, i) {
+        let acc = 0
+        for (i=0; i < cart.lenght; i++){
+            acc += item.price * item.cantidad;
+       }
+       return acc
     }
     function mostrarItems() {
         return cart.map(item => (
-            <div>
+            <div className='mx-auto'>
                 <tr>
                     <td><img src='' /> </td>
                     <td>{item.title}</td>
@@ -57,7 +57,9 @@ export default function Cart() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {mostrarItems()}
+                                    <div>
+                                        {mostrarItems()}
+                                    </div>
                                     <tr>
                                         <td></td>
                                         <td></td>
@@ -66,9 +68,6 @@ export default function Cart() {
                                         <td><strong>Total</strong></td>
                                         <td class="text-right"><strong>{calcularTotal()}</strong></td>
                                     </tr>
-                                    <div class="col-sm-12 col-md-6 text-right">
-                                        <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
-                                    </div>
                                 </tbody>
                             </table>
                         </div>

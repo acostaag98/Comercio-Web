@@ -6,14 +6,16 @@ export const useCartContext = () => useContext(CartContext);
 
 export default function CartProvider({children, defaultCart}){
     const [cart, setCart] = useState(defaultCart)
-    function add() {
-        const item = cart.findIndex(c => c)
+    function add(itemToAdd) {
+        const item = cart.findIndex(item => item.id == itemToAdd.id)
         if (!item) {
-            setCart([...cart, item])
+            setCart([...cart, itemToAdd])
         }
         else {
-            item = {...item, cantidad: +item.cantidad}
-            setCart([...cart])
+            const nuevoCart = [...cart]
+            const prodParaEditar = nuevoCart[itemToAdd.id]
+            prodParaEditar.cantidad = prodParaEditar.cantidad + itemToAdd.cantidad
+            setCart(nuevoCart)
         }
            
     }

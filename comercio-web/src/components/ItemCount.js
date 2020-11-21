@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Icon} from 'semantic-ui-react'
 import { Button } from 'react-bootstrap';
 import './estilos.css'
-import Cart from './Cart';
+
 
 
 export default function ItemCount({stock, initial, onAdd}) {
