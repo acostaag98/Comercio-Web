@@ -7,10 +7,10 @@ import './estilos.css'
 
 export default function Cart() {
     const { cart, remove } = useCartContext()   
-    function calcularTotal(item, i) {
+    function calcularTotal(cart) {
         let acc = 0
-        for (i=0; i < cart.lenght; i++){
-            acc += item.price * item.cantidad;
+        for (let i = 0; i < cart.length; i++){
+            acc += cart[i].cantidad * cart[i].price;
        }
        return acc
     }
@@ -21,7 +21,7 @@ export default function Cart() {
                     <td><img src='' /> </td>
                     <td>{item.title}</td>
                     <td>In stock</td>
-                    <td><input class="form-control" type="text" value="1" /></td>
+                    <td><input class="form-control" type="text" />{item.cantidad}</td>
                     <td class="text-right">{item.price}</td>
                     <td class="text-right"><button onClick={() => remove(item.id)} class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                 </tr>
@@ -36,8 +36,8 @@ export default function Cart() {
             </div>
         ))
     }
-    function showCart() {
-        if (cart.lenght === 0) {
+    function showCart(cart) {
+        if (cart.length === 0) {
             return <Link to='/home'><button className='mx-auto'>Go to Shop!</button></Link>
         }
         else {
@@ -66,7 +66,7 @@ export default function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td><strong>Total</strong></td>
-                                        <td class="text-right"><strong>{calcularTotal()}</strong></td>
+                                        <td class="text-right"><strong>{calcularTotal(cart)}</strong></td>
                                     </tr>
                                 </tbody>
                             </table>
