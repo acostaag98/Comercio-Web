@@ -2,6 +2,7 @@ import React from 'react';
 import { useCartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom'
 import './estilos.css'
+import { Button } from 'react-bootstrap';
 
 
 
@@ -38,7 +39,7 @@ export default function Cart() {
     }
     function showCart(cart) {
         if (cart.length === 0) {
-            return <Link to='/home'><button className='mx-auto'>Go to Shop!</button></Link>
+            return <Link to='/'><Button className='mx-auto'>Go to Shop!</Button></Link>
         }
         else {
             return <div class="container mb-4">
@@ -76,5 +77,5 @@ export default function Cart() {
             </div>
         }
     }
-    return showCart()
+    return showCart(cart)
 }
