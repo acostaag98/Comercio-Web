@@ -19,20 +19,20 @@ export default function Cart() {
         return cart.map(item => (
             <div className='mx-auto'>
                 <tr>
-                    <td><img src='' /> </td>
-                    <td>{item.title}</td>
-                    <td>In stock</td>
-                    <td><input class="form-control" type="text" />{item.cantidad}</td>
-                    <td class="text-right">{item.price}</td>
-                    <td class="text-right"><button onClick={() => remove(item.id)} class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                    <td><img id='cart-image' src={item.image} /> </td>
+                    <td id='text-cart'>{item.title}</td>
+                    <td id='text-cart'>In stock</td>
+                    <td id='text-cart'><input class="form-control" type="text" />{item.cantidad}</td>
+                    <td id='text-cart' class="text-right">${item.price}</td>
+                    <td id='text-cart' class="text-right"><button onClick={() => remove(item.id)} class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Sub-Total</td>
-                    <td class="text-right">{item.price * item.cantidad}</td>
+                    <td id='text-cart'>Sub-Total</td>
+                    <td id='text-cart' class="text-right">${item.price * item.cantidad}</td>
                 </tr>
             </div>
         ))
@@ -50,10 +50,10 @@ export default function Cart() {
                                 <thead>
                                     <tr>
                                         <th scope="col"> </th>
-                                        <th scope="col">Product</th>
-                                        <th scope="col">Available</th>
-                                        <th scope="col" class="text-center">Quantity</th>
-                                        <th scope="col" class="text-right">Price</th>
+                                        <th id='text-cart' scope="col">Product</th>
+                                        <th id='text-cart' scope="col">Available</th>
+                                        <th id='text-cart' scope="col" class="text-center">Quantity</th>
+                                        <th id='text-cart' scope="col" class="text-right">Price</th>
                                         <th> </th>
                                     </tr>
                                 </thead>
@@ -66,8 +66,9 @@ export default function Cart() {
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td><strong>Total</strong></td>
-                                        <td class="text-right"><strong>{calcularTotal(cart)}</strong></td>
+                                        <td id='text-cart'><strong>Total</strong></td>
+                                        <td id='text-cart' class="text-right"><strong>${calcularTotal(cart)}</strong></td>
+                                        <Button id='text-cart' className='mx-auto btn-success'>Checkout</Button>
                                     </tr>
                                 </tbody>
                             </table>

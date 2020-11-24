@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetailList from './ItemDetailList.js'
 import {useParams} from 'react-router-dom'
+import {getFirestore} from '../firebase';
 
 const productos = [
     {id: 1,title:'Led Zeppelin - Led Zeppelin II', price: 133,
@@ -68,20 +69,22 @@ const productos = [
 ]
 
 
-const getItemDetail = new Promise((resolve, rejected) => {
-    setTimeout(() => {
-        resolve(productos)
-    }, 3000)
-})
 function ItemDetailContainer() {
     const [productos, setProductos] = useState([]);
     const {id} = useParams()
     useEffect(() => {
-        getItemDetail.then(res => {
-            const itemClickeado = res.filter(res => res.id == id)[0] 
-            setProductos(itemClickeado)
-        }, err => {
-            console.log(err)
+        const db = getFirestore();
+        const itemCollection = db.collection('items');
+        const item = itemCollection.doc(id)
+        item.get().then((doc) => {
+            if(!doc.exists) {
+                alert('Item no existe')
+                return;
+            }
+            alert('Item encontrado')
+            setProductos({id: doc.id, ...doc.data()})
+        }).catch((error) => {
+            alert(error)
         })
     }, []);
     return <ItemDetailList item={productos}/>

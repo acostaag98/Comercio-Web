@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from './ItemList.js'
+import {getFirestore} from '../firebase';
 
 const productos = [
     {id: 1,title:'Led Zeppelin - Led Zeppelin II', price: 133, image: 'https://http2.mlstatic.com/D_NQ_NP_607507-MLA43256963725_082020-O.jpg', stock: 10, initial: 0},
@@ -48,22 +49,23 @@ const productos = [
 ]
 
 
-const itemTask = new Promise((resolve, reject) => {
-    setTimeout(() => {
-           resolve(productos)
-       }, 2000)
+
    
 
-});
+
 
 function ItemListContainer() {
     const [productos, setProductos] = useState([])
     useEffect(() => {
-        itemTask.then(res => {
-            setProductos(res)
-        }, err => {
-            console.log('Rejected' + err)
-        })
+        const db = getFirestore();
+        const itemCollection = db.collection('items');
+        itemCollection.get().then((querySnapshot) => {
+            if(querySnapshot.size == 0) {
+                alert('no results')
+            }
+            setProductos(querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+        });
+        
     }, []);
     return <ItemList item={productos}/>
 }
