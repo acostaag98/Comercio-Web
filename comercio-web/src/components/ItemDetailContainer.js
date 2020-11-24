@@ -78,13 +78,13 @@ function ItemDetailContainer() {
         const item = itemCollection.doc(id)
         item.get().then((doc) => {
             if(!doc.exists) {
-                alert('Item no existe')
+                console.log('Item no existe')
                 return;
             }
-            alert('Item encontrado')
+            console.log('Item encontrado')
             setProductos({id: doc.id, ...doc.data()})
         }).catch((error) => {
-            alert(error)
+            console.log(error)
         })
     }, []);
     return <ItemDetailList item={productos}/>

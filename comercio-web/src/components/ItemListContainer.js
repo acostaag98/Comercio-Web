@@ -61,7 +61,7 @@ function ItemListContainer() {
         const itemCollection = db.collection('items');
         itemCollection.get().then((querySnapshot) => {
             if(querySnapshot.size == 0) {
-                alert('no results')
+                console.log('no results')
             }
             setProductos(querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
         });
