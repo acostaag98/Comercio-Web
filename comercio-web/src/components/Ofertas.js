@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import ItemList from './ItemList.js'
+import React, { useEffect, useState }from 'react';
+import ItemList from './ItemList.js';
 import {getFirestore} from '../firebase';
 
-function ItemListContainer() {
+function Ofertas() {
     const [productos, setProductos] = useState([])
     useEffect(() => {
         const db = getFirestore();
         const itemCollection = db.collection('items');
-        itemCollection.get().then((querySnapshot) => {
+        const ofertas = itemCollection.where('category', '==', 'oferta')
+        ofertas.get().then((querySnapshot) => {
             if(querySnapshot.size === 0) {
                 console.log('no results')
             }
@@ -17,4 +18,4 @@ function ItemListContainer() {
     }, []);
     return <ItemList item={productos}/>
 }
-export default ItemListContainer;
+export default Ofertas;

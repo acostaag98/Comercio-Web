@@ -39,7 +39,11 @@ export default function Cart() {
     }
     function showCart(cart) {
         if (cart.length === 0) {
-            return <Link to='/'><Button className='mx-auto'>Go to Shop!</Button></Link>
+            return <div className='containerr'>
+                <img src='https://1035thearrow.com/wp-content/uploads/sites/11/2020/02/GettyImages-1124622103.jpg' alt='Snow' style={{width: '100%'}}></img>
+                <Link to='/'><button className='btn'>Ir a comprar !</button></Link>
+            </div>
+
         }
         else {
             return <div class="container mb-4">

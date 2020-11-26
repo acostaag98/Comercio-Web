@@ -14,7 +14,6 @@ export default function ItemDetail({ id, title, price, image, description, stock
     const {add} = useCartContext()
     
     function onAdd(clicks){
-        alert(`Se agregó tu pedido (${clicks}) correctamente a tu carrito!`)
         setCantidad(clicks)
         setButton(false)
         const itemParaAgregar = {id: id, title: title, price: price, cantidad: clicks, imageId: imageId}
@@ -32,7 +31,7 @@ export default function ItemDetail({ id, title, price, image, description, stock
     }
     
     return <div id='card'>
-        <Card  style={{ width: '18rem', margin: '2px' }} className='card border-dark mb-3 box center mx-auto'>
+        <Card  style={{ width: '18rem', margin: '2px' }} className='card border-dark mb-3 box  mx-auto'>
             <Card.Img variant="top" src={imageId} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>

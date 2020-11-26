@@ -21,7 +21,9 @@ class Navbar extends Component {
                 </span>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-
+                        <li className="nav-item active">
+                            <Link to='/ofertas'><a className="nav-link">Ofertas <span class="sr-only">(current)</span></a></Link>
+                        </li>
                     </ul>
                 </div>
                 <CartIcon />
