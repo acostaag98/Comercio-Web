@@ -6,6 +6,7 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import About from './components/About';
 import Contact from './components/Contact';
+import Form from './components/Form';
 import Ofertas from './components/Ofertas';
 import Cart from './components/Cart'
 import {BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route exact path='/ofertas'>
               <Ofertas />
+            </Route>
+            <Route exact path='/form'>
+              <Form />
             </Route>
           </Switch>
           <Footer />

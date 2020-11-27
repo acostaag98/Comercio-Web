@@ -6,78 +6,57 @@ import { Button } from 'react-bootstrap';
 
 
 
+
 export default function Cart() {
-    const { cart, remove } = useCartContext()   
+    const { cart, remove } = useCartContext()
     function calcularTotal(cart) {
         let acc = 0
-        for (let i = 0; i < cart.length; i++){
+        for (let i = 0; i < cart.length; i++) {
             acc += cart[i].cantidad * cart[i].price;
-       }
-       return acc
+        }
+        return acc
     }
     function mostrarItems() {
         return cart.map(item => (
-            <div className='mx-auto'>
-                <tr>
-                    <td><img id='cart-image' src={item.image} /> </td>
-                    <td id='text-cart'>{item.title}</td>
-                    <td id='text-cart'>In stock</td>
-                    <td id='text-cart'><input class="form-control" type="text" />{item.cantidad}</td>
-                    <td id='text-cart' class="text-right">${item.price}</td>
-                    <td id='text-cart' class="text-right"><button onClick={() => remove(item.id)} class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td id='text-cart'>Sub-Total</td>
-                    <td id='text-cart' class="text-right">${item.price * item.cantidad}</td>
-                </tr>
+            <div>
+                <p></p>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm">
+                            • {item.title}
+                        </div>
+                        <div className="col-sm">
+                            <p>Cantidad: {item.cantidad}</p>    
+                        </div>
+                        <div className="col-sm">
+                            ${item.price * item.cantidad}
+                        </div>
+                        <div className="col-sm">
+                            <button onClick={() => remove(item.id)} class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
             </div>
         ))
     }
     function showCart(cart) {
         if (cart.length === 0) {
             return <div className='containerr'>
-                <img src='https://1035thearrow.com/wp-content/uploads/sites/11/2020/02/GettyImages-1124622103.jpg' alt='Snow' style={{width: '100%'}}></img>
+                <img src='https://1035thearrow.com/wp-content/uploads/sites/11/2020/02/GettyImages-1124622103.jpg' alt='Snow' style={{ width: '100%' }}></img>
                 <Link to='/'><button className='btn'>Ir a comprar !</button></Link>
             </div>
 
         }
         else {
-            return <div class="container mb-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col"> </th>
-                                        <th id='text-cart' scope="col">Product</th>
-                                        <th id='text-cart' scope="col">Available</th>
-                                        <th id='text-cart' scope="col" class="text-center">Quantity</th>
-                                        <th id='text-cart' scope="col" class="text-right">Price</th>
-                                        <th> </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <div>
-                                        {mostrarItems()}
-                                    </div>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td id='text-cart'><strong>Total</strong></td>
-                                        <td id='text-cart' class="text-right"><strong>${calcularTotal(cart)}</strong></td>
-                                        <Button id='text-cart' className='mx-auto btn-success'>Checkout</Button>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            return <div>
+                <div>
+                    <h1 className='titleCart'>Tu carrito: </h1>
+                    {mostrarItems()}
+                </div>
+                <div className='checkout'>
+                    <h1>Total: ${calcularTotal(cart)} </h1>
+                    <h2><Link to='/form'><Button id='text-cart' className='mx-auto btn-success'>Ir a completar tus datos!</Button></Link></h2>
                 </div>
             </div>
         }

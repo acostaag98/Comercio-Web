@@ -120,3 +120,84 @@
 .contact {
     position: relative;
 }
+.containerCount {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    top: 10%;
+    left: 60%;
+    
+  
+}
+#card {
+    position: relative;
+  left: 30%;
+}
+.numberCount {
+    position: absolute;
+    transform: translate(250%, -20%);
+    -ms-transform: translate(-50%, 50%);
+    background-color: black;
+    color: #f1f1f1;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.buttonGoCart {
+    position: absolute;
+    transform: translate(-90%, 160%);
+    -ms-transform: translate(-50%, 50%);
+    background-color: black;
+    color: #f1f1f1;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.buttonGroup {
+    position: relative;
+    transform: translate(-10%, 100%);
+    -ms-transform: translate(0%, 50%);
+    color: #f1f1f1;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.cantidad {
+    position: relative;
+    transform: translate(5%, 200%);
+    -ms-transform: translate(0%, 50%);
+}
+.container{
+    font-size: large;
+}
+.checkout {
+    position: relative;
+    font-size: x-large;
+    padding: 20px 120px;
+    transform: translate(46.3%, 2%);
+
+}
+
+.titleCart{
+    padding: 20px 250px;
+}
+.titleForm{
+    font-size: large;
+}
+#form {
+    font-size: xx-large;
+}
+#buttonForm {
+    font-size: large;
+}

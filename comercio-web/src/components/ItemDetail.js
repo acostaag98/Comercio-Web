@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Card } from 'react-bootstrap';
 import ItemCount from './ItemCount';
-import { Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import './estilos.css'
 import { useCartContext } from '../context/CartContext';
@@ -26,12 +25,13 @@ export default function ItemDetail({ id, title, price, image, description, stock
             return <ItemCount stock={stock} initial={initial} onAdd={onAdd} />
         }
         if (button === false) {
-            return <Link to='/cart'><Button className='mx-auto' id='button-cart'>Ir al Carrito! ({cantidad})</Button></Link>
+            return <Link to='/cart'><button className='buttonGoCart' id='button-cart'>Ir al Carrito! ({cantidad})</button></Link>
         }
     }
     
-    return <div id='card'>
-        <Card  style={{ width: '18rem', margin: '2px' }} className='card border-dark mb-3 box  mx-auto'>
+    return <div>
+        <div id='card'>
+        <Card  style={{ width: '18rem', margin: '2px' }} className='card border-dark mb-3 box '>
             <Card.Img variant="top" src={imageId} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
@@ -45,7 +45,10 @@ export default function ItemDetail({ id, title, price, image, description, stock
                 </Card.Text>
                     Precio: ${price}
             </Card.Body>
-            {toggleButton()}
         </Card>
+    </div>
+    <div className='containerCount'>
+        {toggleButton()}
+    </div>
     </div>
     }

@@ -23,11 +23,14 @@ export default function ItemCount({stock, initial, onAdd}) {
         return clicks
     }
     function ShowAndHide() {
-            return <div className='mx-auto'>
-            <h1>{clicks}</h1>
-            <Button id='button-detail-count' className='border-dark' variant='primary' onClick={restar}><Icon name='minus'/></Button>
-            <Button id='button-detail-count' className='border-dark' variant='primary' onClick={sumar}><Icon name='plus'/></Button>
-            <Button id='button-detail-count' className='border-dark' onClick={() => {onAdd(clicks)}}>Comprar</Button>
+            return <div className=''>
+            <h1 className='cantidad'>Cantidad: </h1>
+            <h2 className='numberCount'>{clicks}</h2>
+            <div className='buttonGroup'>
+                <Button id='button-detail-count' className='button1' variant='primary' onClick={restar}><Icon name='minus'/></Button>
+                <Button id='button-detail-count' className='button1' variant='primary' onClick={sumar}><Icon name='plus'/></Button>
+                <Button id='button-detail-count' className='button1' onClick={() => {onAdd(clicks)}}>Comprar</Button>   
+            </div>
         </div>
     }
     return ShowAndHide()
