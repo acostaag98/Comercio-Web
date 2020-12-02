@@ -31,15 +31,12 @@ export default function ItemDetail({ id, title, price, image, description, stock
     
     return <div>
         <div id='card'>
-        <Card  style={{ width: '18rem', margin: '2px' }} className='card border-dark mb-3 box '>
+        <Card  style={{ width: '22rem', margin: '5px'}} className='card border-dark mb-3 box '>
             <Card.Img variant="top" src={imageId} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text id='nav-text'>
                     {description}
-                </Card.Text>
-                <Card.Text id='nav-text'>
-                    Opciones de pago: Crédito y debito
                 </Card.Text>
                 <Card.Text id='text-price'>
                 </Card.Text>
@@ -49,6 +46,9 @@ export default function ItemDetail({ id, title, price, image, description, stock
     </div>
     <div className='containerCount'>
         {toggleButton()}
+    </div>
+    <div className='descriptionCard'>
+        <button> preguntar como hacer para que me lleve a un link externo {description}</button>
     </div>
     </div>
     }

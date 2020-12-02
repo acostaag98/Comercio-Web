@@ -8,11 +8,11 @@ export default function Item({ title, price, imageId, id }) {
         <Card.Img variant="top" src={imageId} />
         <Card.Body>
             <Card.Title>{title}</Card.Title>
-            <Card.Text id='nav-text'>
+            <Card.Text>
                 Precio: ${price}
             </Card.Text>
         </Card.Body>
-        <Link to={`item/${id}`}><Button id='button-detail' className='border-dark'>Ver detalle del Producto</Button></Link>
+        <Link to={`item/${id}`}><Button id='button-detail'>Ver detalle del Producto</Button></Link>
 </Card>
 
 }

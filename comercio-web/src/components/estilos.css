@@ -10,26 +10,29 @@
 #nav-text{
     font-family: cursive;
     font-style: oblique;
-    color: black;
+    color: white;
 }
 #button-detail{
-    background-color: black;
+    background-color: rgb(51, 51, 51);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     font-style: oblique;
+    border:  rgb(85, 85, 85);
     
 }
 #button-detail-count{
-    background-color: black;
+    background-color: rgb(68, 68, 68);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     font-style: oblique;
     padding: 6px;
     margin: 3px;
     width: 100px;
+    border:  rgb(85, 85, 85);
 }
 #button-cart{
-    background-color: black;
+    background-color: rgb(51, 51, 51);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     font-style: oblique;
+    border:  rgb(85, 85, 85);
 }
 
 #text-price{
@@ -65,7 +68,8 @@
     left: 50%;
     transform: translate(-50%, 50%);
     -ms-transform: translate(-50%, 50%);
-    background-color: black;
+    background-color: rgb(51, 51, 51);
+    border:  rgb(85, 85, 85);
     color: #f1f1f1;
     font-size: 16px;
     padding: 16px 30px;
@@ -78,7 +82,8 @@
 
 .containerr .btn:hover{
     background-color: white;
-    color: black;
+    color: rgb(51, 51, 51);
+    border:  rgb(85, 85, 85);
 
 }
 .about {
@@ -124,19 +129,21 @@
     position: absolute;
     transform: translate(-50%, 50%);
     top: 10%;
-    left: 60%;
+    left: 40%;
     
   
 }
 #card {
     position: relative;
-  left: 30%;
+  left: 5%;
+  padding: 15px;
 }
 .numberCount {
     position: absolute;
     transform: translate(250%, -20%);
     -ms-transform: translate(-50%, 50%);
-    background-color: black;
+    background-color: rgb(51, 51, 51);
+    border:  rgb(85, 85, 85);
     color: #f1f1f1;
     font-size: 16px;
     padding: 16px 30px;
@@ -150,7 +157,8 @@
     position: absolute;
     transform: translate(-90%, 160%);
     -ms-transform: translate(-50%, 50%);
-    background-color: black;
+    background-color: rgb(51, 51, 51);
+    border:  rgb(85, 85, 85);
     color: #f1f1f1;
     font-size: 16px;
     padding: 16px 30px;
@@ -200,4 +208,26 @@
 }
 #buttonForm {
     font-size: large;
+}
+.itemListContainer {
+    background-color:  rgb(223, 219, 219);
+    position: relative;
+    top: 2%;
+    left: 2.3%;
+}
+.navbar {
+    background-color: rgb(27, 27, 27);
+    color: rgb(27, 27, 27);
+}
+.pCart {
+    position: relative;
+    left: 25%;
+    border: black;
+}
+
+.descriptionCard {
+    position: relative;
+    left: 5.5%;
+    top: 50%;
+    padding: 15px;
 }

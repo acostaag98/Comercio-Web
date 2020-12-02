@@ -22,7 +22,14 @@ export default function CartProvider({children, defaultCart}){
     function remove(itemId) {
         setCart(cart.filter(item => item.id !== itemId))
     }
-    return <CartContext.Provider value={{cart, add, remove}}>
+    function calcularTotal(cart) {
+        let acc = 0
+        for (let i = 0; i < cart.length; i++) {
+            acc += cart[i].cantidad * cart[i].price;
+        }
+        return acc
+    }
+    return <CartContext.Provider value={{cart, add, remove, calcularTotal}}>
         {children}
     </CartContext.Provider>
 }

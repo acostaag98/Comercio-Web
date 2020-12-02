@@ -5,17 +5,18 @@ import './estilos.css'
 class Footer extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+            <div className='footer'>
+                <nav id='navbar' className="navbar navbar-expand-lg navbar-light ">
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
                         <li id='nav-text' className="nav-item ">
-                        <Link to='/contact'><a className="nav-link">Contacto</a></Link>
+                        <Link to='/contact'>Contacto</Link>
                         </li>
+                        <span id='navbar'>
+                            asd
+                        </span>
                         <li id='nav-text' className="nav-item">
-                            <Link to='/about'><a className="nav-link" >Sobre nosotros</a></Link>
+                            <Link to='/about'>Sobre nosotros</Link>
                         </li>
                     </ul>
                     <span id='nav-text' className="navbar-text">
@@ -23,6 +24,7 @@ class Footer extends Component {
                     </span>
                 </div>
             </nav>
+            </div>
         )
     }
 }

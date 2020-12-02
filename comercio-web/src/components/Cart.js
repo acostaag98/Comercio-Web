@@ -8,14 +8,7 @@ import { Button } from 'react-bootstrap';
 
 
 export default function Cart() {
-    const { cart, remove } = useCartContext()
-    function calcularTotal(cart) {
-        let acc = 0
-        for (let i = 0; i < cart.length; i++) {
-            acc += cart[i].cantidad * cart[i].price;
-        }
-        return acc
-    }
+    const { cart, remove, calcularTotal } = useCartContext()
     function mostrarItems() {
         return cart.map(item => (
             <div>
@@ -42,16 +35,21 @@ export default function Cart() {
     }
     function showCart(cart) {
         if (cart.length === 0) {
-            return <div className='containerr'>
-                <img src='https://1035thearrow.com/wp-content/uploads/sites/11/2020/02/GettyImages-1124622103.jpg' alt='Snow' style={{ width: '100%' }}></img>
-                <Link to='/'><button className='btn'>Ir a comprar !</button></Link>
+            return  <div>
+            <div>
+                <h1 className='titleCart'>CARRITO:</h1>
+                <h2 className='pCart'>Esta vacío</h2>
             </div>
+            <div className='checkout'>
+                <h2><Link to='/home'><Button id='text-cart' className='mx-auto btn-success'>Ir a comprar!</Button></Link></h2>
+            </div>
+        </div>
 
         }
         else {
             return <div>
                 <div>
-                    <h1 className='titleCart'>Tu carrito: </h1>
+                    <h1 className='titleCart'>CARRITO: </h1>
                     {mostrarItems()}
                 </div>
                 <div className='checkout'>
