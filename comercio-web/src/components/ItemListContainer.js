@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useParams } from 'react'
+import React, { useEffect, useState} from 'react'
+import {useParams} from 'react-router-dom'
 import ItemList from './ItemList.js'
 import {getFirestore} from '../firebase';
 
@@ -25,7 +26,9 @@ function ItemListContainer() {
                 setProductos(querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
             });
         }
-    }, []);
-    return <ItemList item={productos}/>
+    }, [category]);
+    return <div className='itemListContainer'>
+        <ItemList item={productos}/>
+    </div>
 }
 export default ItemListContainer;

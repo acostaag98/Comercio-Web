@@ -82,7 +82,15 @@ export default function Form() {
                     onChange={handleInputChange}
                 ></input>
                 <p></p>
-                <button id='buttonForm' className='btn btn-success' onClick={newOrder}>Comprar !</button>
+                <input
+                    placeholder='Repita su e-mail'
+                    className='form-control'
+                    type='text'
+                    name='email'
+                    onChange={handleInputChange}
+                ></input>
+                <p></p>
+                <button id='buttonForm' className='btn btn-success' onClick={newOrder}>Comprar </button>
             </div>
         </form>
     </Fragment>

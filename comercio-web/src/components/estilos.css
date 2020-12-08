@@ -211,9 +211,8 @@
 }
 .itemListContainer {
     background-color:  rgb(223, 219, 219);
-    position: relative;
-    top: 2%;
-    left: 2.3%;
+    margin-top: -30px;
+    padding: 35px;
 }
 .navbar {
     background-color: rgb(27, 27, 27);
@@ -230,4 +229,15 @@
     left: 5.5%;
     top: 50%;
     padding: 15px;
+}
+.footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+}
+.imgCard {
+    max-width: 200px;
+    max-height: 200px;
 }
