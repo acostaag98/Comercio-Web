@@ -29,7 +29,52 @@ export default function CartProvider({children, defaultCart}){
         }
         return acc
     }
-    return <CartContext.Provider value={{cart, add, remove, calcularTotal}}>
+    function mostrarItems() {
+        return cart.map(item => (
+            <div>
+                <p></p>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm">
+                            • {item.title}
+                        </div>
+                        <div className="col-sm">
+                            <p>Cantidad: {item.cantidad}</p>    
+                        </div>
+                        <div className="col-sm">
+                            ${item.price * item.cantidad}
+                        </div>
+                        <div className="col-sm">
+                            <button onClick={() => remove(item.id)} class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+            </div>
+        ))
+    }
+    function mostrarDetallePedido() {
+        return cart.map(item => (
+            <div>
+                <p></p>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm">
+                            • {item.title}
+                        </div>
+                        <div className="col-sm">
+                            <p>Cantidad: {item.cantidad}</p>    
+                        </div>
+                        <div className="col-sm">
+                            ${item.price * item.cantidad}
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+            </div>
+        ))
+    }
+    return <CartContext.Provider value={{cart, add, remove, calcularTotal, mostrarItems, mostrarDetallePedido}}>
         {children}
     </CartContext.Provider>
 }

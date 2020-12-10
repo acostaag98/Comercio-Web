@@ -8,31 +8,7 @@ import { Button } from 'react-bootstrap';
 
 
 export default function Cart() {
-    const { cart, remove, calcularTotal } = useCartContext()
-    function mostrarItems() {
-        return cart.map(item => (
-            <div>
-                <p></p>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-sm">
-                            • {item.title}
-                        </div>
-                        <div className="col-sm">
-                            <p>Cantidad: {item.cantidad}</p>    
-                        </div>
-                        <div className="col-sm">
-                            ${item.price * item.cantidad}
-                        </div>
-                        <div className="col-sm">
-                            <button onClick={() => remove(item.id)} class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button>
-                        </div>
-                    </div>
-                </div>
-                <p></p>
-            </div>
-        ))
-    }
+    const { cart, calcularTotal, mostrarItems } = useCartContext()
     function showCart(cart) {
         if (cart.length === 0) {
             return  <div>
