@@ -21,14 +21,20 @@ export default function Form() {
         email2: '',
     })
     const handleInputChange = (event) => {
-        if (datos.email === datos.email2) {
-            setEmail(true)
-        }
         setDatos({
             ...datos,
             [event.target.name]: event.target.value,
 
         })
+    }
+    function BtnDisabled(datos) {
+        if(datos.email === datos.email2) {
+            setEmail(true)
+            return email
+        }
+        if (email === true) {
+            return <button id='buttonForm' className='btn btn-success' onClick={newOrder}>Comprar </button>
+        }
     }
     async function newOrder(event) {
         event.preventDefault();
@@ -103,7 +109,7 @@ export default function Form() {
                             onChange={handleInputChange}
                         ></input>
                         <p></p>
-                        <button disabled={email === false} id='buttonForm' className='btn btn-success' onClick={newOrder}>Comprar </button>
+                        {BtnDisabled(datos)}
                     </div>
                 </form>
             </div>
