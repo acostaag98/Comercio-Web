@@ -12,7 +12,6 @@ export default function Form() {
     const { cart, calcularTotal, mostrarDetallePedido } = useCartContext()
     const db = getFirestore();
     const [button, setButton] = useState(true)
-    const [email, setEmail] = useState(false)
     const [datos, setDatos] = useState({
         nombre: '',
         direccion: '',
@@ -28,12 +27,10 @@ export default function Form() {
         })
     }
     function BtnDisabled(datos) {
-        if(datos.email === datos.email2) {
-            setEmail(true)
-            return email
-        }
-        if (email === true) {
-            return <button id='buttonForm' className='btn btn-success' onClick={newOrder}>Comprar </button>
+        if(datos.email2 !== '') {
+            if(datos.email === datos.email2) {
+                return true
+            }
         }
     }
     async function newOrder(event) {
@@ -109,7 +106,7 @@ export default function Form() {
                             onChange={handleInputChange}
                         ></input>
                         <p></p>
-                        {BtnDisabled(datos)}
+                        <button id="buttonForm" disabled={BtnDisabled(datos) !== true} className="btn btn-success" onClick={newOrder}>Comprar</button>
                     </div>
                 </form>
             </div>
