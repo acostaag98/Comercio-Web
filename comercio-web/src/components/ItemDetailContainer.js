@@ -20,7 +20,7 @@ function ItemDetailContainer() {
         }).catch((error) => {
             console.log(error)
         })
-    }, []);
+    }, [id]); 
     return <ItemDetailList item={productos}/>
 
 }

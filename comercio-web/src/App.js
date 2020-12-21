@@ -7,7 +7,6 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import About from './components/About';
 import Contact from './components/Contact';
 import Form from './components/Form';
-import Inicio from './components/Inicio';
 import Cart from './components/Cart'
 import {BrowserRouter, Route, Switch } from 'react-router-dom'
 import CartProvider from './context/CartContext';
@@ -22,9 +21,6 @@ function App() {
           <Navbar/>
           <Switch>
             <Route exact path='/'>
-              <Inicio />
-            </Route>
-            <Route exact path='/home'>
               <ItemListContainer/>
             </Route>
             <Route exact path='/category/:category'>

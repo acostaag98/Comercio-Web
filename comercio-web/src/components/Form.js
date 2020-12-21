@@ -115,7 +115,7 @@ export default function Form() {
     else {
         return <div className='containerr'>
             <img src='https://www.relato.gt/wp-content/uploads/2020/06/2fd08c5746404642.jpg' alt='Snow' style={{ width: '100%' }}></img>
-            <Link to='/home'><button className='btn'>Go home !</button></Link>
+            <Link to='/'><button className='btn'>Go home !</button></Link>
         </div>
     }
 }

@@ -32,7 +32,7 @@ export default function ItemDetail({ id, title, price, image, description, stock
     if (!id) {
         return <div>
             <h1>Producto no encontrado</h1>
-            <Link to='/home'><button id='buttonForm' className='btn btn-primary'>Go Home!</button></Link>
+            <Link to='/'><button id='buttonForm' className='btn btn-primary'>Go Home!</button></Link>
         </div>
     }
     else {

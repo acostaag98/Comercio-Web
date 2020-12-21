@@ -7,7 +7,7 @@ class Navbar extends Component {
     render() {
         return (
             <nav id='navbar' className="navbar navbar-expand-lg navbar-light">
-                <Link className="navbar-brand nav-item" to='/home'><svg width="2em" height="3em" viewBox="0 0 16 16" className="bi bi-music-note-list" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <Link className="navbar-brand nav-item" to='/'><svg width="2em" height="3em" viewBox="0 0 16 16" className="bi bi-music-note-list" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z" />
                     <path fillRule="evenodd" d="M12 3v10h-1V3h1z" />
                     <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z" />
@@ -22,7 +22,7 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li id='nav-text' className="nav-item active">
-                            <Link to='/category/ofertas'>Ofertas <span className="sr-only">(current)</span></Link>
+                            <Link to='/category/oferta'>Ofertas <span className="sr-only">(current)</span></Link>
                         </li>
                     </ul>
                 </div>

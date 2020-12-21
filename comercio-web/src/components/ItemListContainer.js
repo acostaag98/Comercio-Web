@@ -9,7 +9,7 @@ function ItemListContainer() {
     useEffect(() => {
         const db = getFirestore();
         const itemCollection = db.collection('items');
-        const ofertas = itemCollection.where('category', '==', 'oferta')
+        const ofertas = itemCollection.where('category', '==', category)
         if (category === undefined) {
             itemCollection.get().then((querySnapshot) => {
                 if(querySnapshot.size === 0) {
@@ -28,7 +28,7 @@ function ItemListContainer() {
         }
     }, [category]);
     return <div className='itemListContainer'>
-        <ItemList item={productos}/>
+        <ItemList  item={productos}/>
     </div>
 }
 export default ItemListContainer;

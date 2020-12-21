@@ -17,7 +17,7 @@ export default function Cart() {
                 <h2 className='pCart'>Esta vacío</h2>
             </div>
             <div className='checkout'>
-                <h2><Link to='/home'><Button id='text-cart' className='mx-auto btn-success'>Ir a comprar!</Button></Link></h2>
+                <h2><Link to='/'><Button id='text-cart' className='mx-auto btn-success'>Ir a comprar!</Button></Link></h2>
             </div>
         </div>
 
