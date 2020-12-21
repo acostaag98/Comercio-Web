@@ -9,7 +9,6 @@ function ItemListContainer() {
     useEffect(() => {
         const db = getFirestore();
         const itemCollection = db.collection('items');
-        const ofertas = itemCollection.where('category', '==', category)
         if (category === undefined) {
             itemCollection.get().then((querySnapshot) => {
                 if(querySnapshot.size === 0) {
@@ -19,6 +18,7 @@ function ItemListContainer() {
             });
         }
         else{ 
+            const ofertas = itemCollection.where('category', '==', category)
             ofertas.get().then((querySnapshot) => {
                 if(querySnapshot.size === 0) {
                     console.log('no results')
